@@ -16,6 +16,11 @@
 
     .select-char-dd {
         min-width: 10rem;
+
+        .p-dropdown-label {
+            direction: ltr;
+            text-align: right;
+        }
     }
 
     .save-btn {
