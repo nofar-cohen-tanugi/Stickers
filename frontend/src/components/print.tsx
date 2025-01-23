@@ -1,6 +1,6 @@
 import { useReactToPrint } from "react-to-print";
 import React, { useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../style/print.scss'
 import { Button } from "primereact/button";
 
@@ -13,6 +13,7 @@ export const Print = () => {
     const dateDisplayed = `${month < 10 ? '0' + month : month}/${year}`;
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     // Parse the query parameters from the URL
     const queryParams = new URLSearchParams(location.search);
@@ -34,7 +35,9 @@ export const Print = () => {
     ));
 
     return (<>
-        <Button onClick={() => reactToPrintFn()}>הדפסה</Button>
+        <div className='btns-wrap'><Button onClick={() => reactToPrintFn()}>הדפסה</Button>
+            <Button onClick={() => navigate('/')}>חזרה לעמוד הראשי</Button>
+        </div>
         <div className="print grid-container" ref={contentRef}>
             {cards}
         </div>

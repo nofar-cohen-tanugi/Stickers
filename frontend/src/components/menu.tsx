@@ -34,6 +34,7 @@ export const Menu = () => {
     );
 
     return <div className="menu-wrap">
+        <h1>הדפסת מדבקות</h1>
         <Card title="הגדרות" footer={footer}>
             <Dropdown value={selectedChar} onChange={(e) => setSelectedChar(e.value)} options={option}
                 placeholder="בחירת אות" className="select-char-dd" />

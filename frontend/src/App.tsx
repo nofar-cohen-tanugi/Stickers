@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Print } from './components/print.tsx';
+import './style/index.scss';
 
 interface AppProps {
   Component: React.ComponentType<any>;
