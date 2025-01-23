@@ -1,0 +1,22 @@
+.menu-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .p-card-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+
+    .select-char-dd {
+        min-width: 10rem;
+    }
+
+    .save-btn {
+        display: flex;
+        gap: 0.5rem;
+    }
+}
