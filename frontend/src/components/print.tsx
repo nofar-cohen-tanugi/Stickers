@@ -20,7 +20,7 @@ export const Print = () => {
     const day = todayDate.getDate();
     const month = todayDate.getMonth() + 1;
     const year = todayDate.getFullYear();
-    const dateDisplayed = `${day}/${month < 10 ? '0' + month : month}/${year}`;
+    const dateDisplayed = `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
 
     const contentRef = useRef<HTMLDivElement>(null);
     const reactToPrintFn = useReactToPrint({ contentRef });
