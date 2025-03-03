@@ -5,28 +5,30 @@ import '../style/print.scss'
 import { Button } from "primereact/button";
 
 export const Print = () => {
-    const rows = 12; // Number of rows
-    const columns = 6; // Number of columns
-    const todayDate = new Date(Date.now());
-    const month = todayDate.getMonth() + 1;
-    const year = todayDate.getFullYear();
-    const dateDisplayed = `${month < 10 ? '0' + month : month}/${year}`;
-
     const location = useLocation();
     const navigate = useNavigate();
 
     // Parse the query parameters from the URL
     const queryParams = new URLSearchParams(location.search);
     const char = queryParams.get('char'); // Get the 'char' query parameter
-    let number = parseInt(queryParams.get('number') ?? '0'); // Get the 'number' query parameter
+    let fromNumber = parseInt(queryParams.get('from-number') ?? '0'); // Get the 'number' query parameter
+    let toNumber = parseInt(queryParams.get('to-number') ?? '0'); // Get the 'number' query parameter
+
+    const rows = Math.round((toNumber - fromNumber) / 6); // Number of rows
+    const columns = 6; // Number of columns
+    const todayDate = new Date(Date.now());
+    const day = todayDate.getDay();
+    const month = todayDate.getMonth() + 1;
+    const year = todayDate.getFullYear();
+    const dateDisplayed = `${day}/${month < 10 ? '0' + month : month}/${year}`;
 
     const contentRef = useRef<HTMLDivElement>(null);
     const reactToPrintFn = useReactToPrint({ contentRef });
 
     // Render the cards dynamically
     const cards = Array.from({ length: rows * columns }, () => (
-        <div key={number} className="sticker">
-            <div className='number'>{number++}</div>
+        <div key={fromNumber} className="sticker">
+            <div className='number'>{fromNumber++}</div>
             <div className='char-and-date'>
                 <div>{dateDisplayed}</div>
                 <div>{char}</div>
