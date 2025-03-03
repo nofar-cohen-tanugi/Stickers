@@ -17,7 +17,7 @@ export const Print = () => {
     const rows = Math.round((toNumber - fromNumber) / 6); // Number of rows
     const columns = 6; // Number of columns
     const todayDate = new Date(Date.now());
-    const day = todayDate.getDay();
+    const day = todayDate.getDate();
     const month = todayDate.getMonth() + 1;
     const year = todayDate.getFullYear();
     const dateDisplayed = `${day}/${month < 10 ? '0' + month : month}/${year}`;
