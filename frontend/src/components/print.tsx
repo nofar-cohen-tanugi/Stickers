@@ -16,11 +16,23 @@ export const Print = () => {
 
     const rows = Math.round((toNumber - fromNumber) / 6); // Number of rows
     const columns = 6; // Number of columns
+    const hebrewMonths = [
+        "ינואר",  // January
+        "פברואר", // February
+        "מרץ",    // March
+        "אפריל",  // April
+        "מאי",    // May
+        "יוני",   // June
+        "יולי",   // July
+        "אוגוסט", // August
+        "ספטמבר", // September
+        "אוקטובר",// October
+        "נובמבר", // November
+        "דצמבר"  // December
+      ];
     const todayDate = new Date(Date.now());
-    const day = todayDate.getDate();
-    const month = todayDate.getMonth() + 1;
-    const year = todayDate.getFullYear();
-    const dateDisplayed = `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
+    const month = todayDate.getMonth();
+    const dateDisplayed = hebrewMonths[month]
 
     const contentRef = useRef<HTMLDivElement>(null);
     const reactToPrintFn = useReactToPrint({ contentRef });
